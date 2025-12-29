@@ -1,126 +1,119 @@
-# enterprise-sales-intelligence-genai
-
-⸻
-
-End-to-End Sales Data Engineering & Analytics Platform
-
+Enterprise Sales Intelligence & GenAI Reporting Platform
 📌 Project Overview
 
-This project demonstrates an end-to-end data engineering pipeline for sales analytics using Databricks Community Edition, Apache Spark, Delta Lake, and SQL-based BI dashboards, extended with GenAI-driven business insights.
+This project implements an end-to-end sales data engineering and analytics platform using Databricks Community Edition, Apache Spark, and Delta Lake, extended with a GenAI-powered executive reporting layer.
 
-The pipeline follows industry-standard Medallion Architecture (Bronze → Silver → Gold) to ingest raw sales data, clean and transform it, compute business KPIs, and visualize insights for stakeholders.
-
-⸻
+The solution follows the industry-standard Medallion Architecture (Bronze → Silver → Gold) to ingest raw transactional data, clean and transform it, compute business KPIs, and generate both BI dashboards and natural language business summaries for decision-makers.
 
 🏗️ Architecture Overview
 
-Medallion Architecture:
+Medallion Architecture Flow
 
 Raw CSV Data
-     ↓
+   ↓
 Bronze Layer (Raw Ingestion)
-     ↓
-Silver Layer (Cleaned & Enriched Data)
-     ↓
+   ↓
+Silver Layer (Cleaned & Standardized)
+   ↓
 Gold Layer (Business KPIs)
-     ↓
-BI Dashboard & GenAI Insights
+   ↓
+BI Dashboards & GenAI Insights
 
-
-🧱 Data Layers Explained
-
+🧱 Data Layers
 🔹 Bronze Layer
-	•	Raw sales CSV ingested as Delta tables
-	•	No transformations
-	•	Added metadata columns:
-	•	ingestion_timestamp
-	•	data_source
 
-Purpose: Preserve raw data for audit and reprocessing.
+Raw CSV data ingested into Delta tables
 
-⸻
+No business transformations applied
+
+Metadata added:
+
+ingestion_timestamp
+
+data_source
+
+Purpose: Preserve raw data for auditability and reprocessing.
 
 🔹 Silver Layer
-	•	Cleaned and structured data
-	•	Removed nulls and invalid records
-	•	Correct data types applied
-	•	Derived columns (e.g., order date, revenue)
 
-Purpose: Create reliable, analytics-ready data.
+Data cleaned and standardized using PySpark
 
-⸻
+Invalid and cancelled records removed
+
+Data types enforced
+
+Deduplication applied
+
+Purpose: Create reliable, analytics-ready datasets.
 
 🔹 Gold Layer
 
-Business-ready aggregated tables:
-	•	Daily revenue KPIs
-	•	Customer-level KPIs
-	•	Product performance KPIs
-	•	Country-wise revenue metrics
+Business-ready aggregated tables created using Spark SQL:
 
-Purpose: Directly consumed by BI tools and decision makers.
+Daily revenue KPIs
 
-⸻
+Customer-level metrics
+
+Country-wise sales performance
+
+Purpose: Direct consumption by BI dashboards and GenAI modules.
 
 📊 Key Business KPIs
-	•	Total Revenue
-	•	Total Orders
-	•	Average Order Value (AOV)
-	•	Daily Revenue Trend
-	•	Top Products by Revenue
-	•	Customer Revenue Contribution
-	•	Country-wise Sales Performance
 
-⸻
+Total Revenue
+
+Total Orders
+
+Average Order Value (AOV)
+
+Daily Revenue Trend
+
+Customer Revenue Contribution
+
+Country-wise Sales Performance
 
 📈 BI Dashboard
 
-Built using Databricks SQL Dashboard:
-	•	KPI cards for executive overview
-	•	Line charts for revenue trends
-	•	Bar charts for product & country performance
+Built using Databricks SQL Dashboards, including:
+
+KPI cards for executive overview
+
+Line charts for revenue trends
+
+Bar charts for country and customer performance
 
 This enables self-service analytics for business users.
 
-⸻
-
 🤖 GenAI Integration
 
-GenAI is used to:
-	•	Convert KPI outputs into executive-level summaries
-	•	Generate natural language business insights
-	•	Support decision-making using structured sales data
+A GenAI layer is integrated to:
+Convert structured KPI tables into natural language summaries
 
-Technologies:
-	•	HuggingFace LLM
-	•	Python-based prompt engineering
+Generate executive-level business insights
+
+Support data-driven decision making
+
+Approach:
+
+Gold KPIs converted into structured text prompts
+
+Hugging Face LLM used for summary generation
+
+Python-based prompt engineering
 
 
 🛠️ Tech Stack
-
-
-Category
-Tools
-Data Processing
-Apache Spark (PySpark)
-Storage
-Delta Lake
-Platform
-Databricks Community Edition
-Querying
-Spark SQL
-BI
-Databricks SQL Dashboard
-GenAI
-HuggingFace Transformers
-Language
-Python, SQL
+Category	Tools
+Data Processing	Apache Spark (PySpark, Spark SQL)
+Storage	Delta Lake
+Platform	Databricks Community Edition
+BI	Databricks SQL Dashboard
+GenAI	Hugging Face Transformers
+Language	Python, SQL
 
 
 📂 Project Structure
-
-
-sales-data-engineering/
+enterprise-sales-intelligence-genai/
 │
 ├── notebooks/
 │   ├── 01_bronze_ingestion.ipynb
@@ -129,36 +122,38 @@ sales-data-engineering/
 │   ├── 04_genai_insights.ipynb
 │
 ├── dashboards/
-│   └── sales_bi_dashboard_screenshots/
-│
-├── data/
-│   └── sample_sales.csv
+│   └── bi_dashboard_screenshots/
 │
 ├── architecture/
 │   └── architecture_diagram.png
 │
 └── README.md
 
-
 🚀 Future Enhancements
-	•	Incremental ingestion using Auto Loader
-	•	Unity Catalog integration (enterprise setup)
-	•	Power BI / Tableau integration
-	•	RAG-based GenAI using LangChain
-	•	Orchestration using Airflow
 
-⸻
+Incremental ingestion pipelines
+
+Orchestration using Airflow
+
+RAG-based GenAI using LangChain
+
+External BI tools (Power BI / Tableau)
+
+Enterprise governance using Unity Catalog
 
 🎯 Key Learnings
-	•	Designed scalable medallion architecture
-	•	Hands-on Delta Lake operations
-	•	KPI modeling for analytics
-	•	Real-world BI dashboard creation
-	•	Applied GenAI for business summarization
 
-⸻
+Designed scalable Medallion architecture
+
+Hands-on experience with Delta Lake
+
+Advanced KPI modeling using Spark SQL
+
+BI dashboard development
+
+Practical application of GenAI for business insights
 
 📌 Author
 
 Ayush Khandelwal
-Aspiring Data Engineer | Data Analytics | Spark | SQL | GenAI
+Aspiring Data Engineer | Spark | SQL | Analytics | GenAI
